@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+#secret_key
+ #openssl rand -hex 64
 #$ git commit -am "Add hello"
 #$ git push
 #$ heroku create
@@ -13,8 +15,13 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.2'
+
+gem 'jquery-rails'
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
+gem 'fullcalendar-rails', '~>3.4.0.0'
+gem 'momentjs-rails'
+gem 'jquery-ui-rails'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
