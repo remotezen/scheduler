@@ -11,6 +11,4 @@ class StaticPagesController < ApplicationController
     @title = "About"
   end
 
-  def about
-  end
 end
