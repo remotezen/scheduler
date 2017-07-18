@@ -1,0 +1,29 @@
+@import 'colorvars';
+.weekly-shift{
+  color:$lightest-blue;
+  padding-bottom:20px;
+  border-bottom:1px solid #aaa;
+  margin-bottom:30px;
+}
+p.shift-day{
+  color:$dark-orange;
+  background: #eee;
+  width:45px;
+  border-radius:45%;
+  text-align:center;
+  margin-bottom:12px;
+}
+p.shift-time{
+  color:$dark-orange;
+  border-bottom:solid #add 1px;
+  padding-bottom:8px;
+}
+p.shift-name{
+  color:$blue;
+  font-size:1.2em;
+}
+.circle {
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 20px;
+}

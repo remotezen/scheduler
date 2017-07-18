@@ -12,28 +12,19 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :event_title %>
+    <%= form.label :name %>
+    <%= form.select :name, User.all.collect{|u|[u.name]},
+      {include_blank:'None'} %>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description, id: :event_description %>
+    <%= form.label :start_time %>
+    <%= form.datetime_select :start_time, id: :event_start_time %>
   </div>
 
   <div class="field">
-    <%= form.label :start %>
-    <%= form.datetime_select :start, id: :event_start %>
-  </div>
-
-  <div class="field">
-    <%= form.label :end %>
-    <%= form.datetime_select :end, id: :event_end %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id, id: :event_user_id %>
+    <%= form.label :end_time %>
+    <%= form.datetime_select :end_time, id: :event_end_time %>
   </div>
 
   <div class="actions">

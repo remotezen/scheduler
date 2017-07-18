@@ -14,10 +14,4 @@
 //= require turbolinks
 //= require_tree .
 //= require moment
-//= require fullcalendar
-//= require jquery-ui
 
-$(function() {
-  $('#calendar').fullCalendar({});
-  $('.datepicker').datepicker();
-})

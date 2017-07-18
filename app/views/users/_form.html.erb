@@ -15,9 +15,13 @@
     <%= form.label :name %>
     <%= form.text_field :name, id: :user_name %>
   </div>
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.email_field :email, id: :user_email %>
+  </div>
 
   <div class="field">
-    <%= form.label :title %>
+    <%= form.label :position %>
     <%= form.text_field :title, id: :user_title %>
   </div>
 
