@@ -21,6 +21,7 @@ gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
 gem 'momentjs-rails'
 gem 'jquery-ui-rails'
+gem 'bcrypt'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server

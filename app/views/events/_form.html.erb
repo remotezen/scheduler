@@ -14,7 +14,7 @@
   <div class="field">
     <%= form.label :name %>
     <%= form.select :name, User.all.collect{|u|[u.name]},
-      {include_blank:'None'} %>
+      {include_blank:'Name'} %>
   </div>
 
   <div class="field">

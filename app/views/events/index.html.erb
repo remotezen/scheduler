@@ -1,19 +1,27 @@
 <p id="notice"><%= notice %></p>
-<h3 class=weekly-shift>Shift at a glance</h3>
-<%= week_calendar number_of_weeks: 1,  
-  events: @events do |date,events| %>
-  <p class="shift-day circle">
+<h3>Shift at a glance</h3>
+<%=   month_calendar events: @events do |date,events| %>
+  <p class="month-day">
     <%= date.day %>
-    <br>
-  </p>
+   </p>
   <% events.each do |event| %>
-    <p class="shift-name">
-      <%=event.name %>
-    </p>
-    <p class="shift-time">
-      <%= rTime(event.start_time) %> -
-      <%= rTime(event.end_time) %>
-    </p>
-
+    <ul>
+      <li class="name-in-list">
+        <%= event.name %>
+      </li>
+      <li>
+          start:
+       
+        <%=
+        rTime(event.start_time)
+      %>
+      </li>
+      <li class="last-table-list">
+         end:
+        <%= 
+          rTime(event.end_time)
+        %>
+      </li>
+    </ul>
     <% end %>
 <% end %>

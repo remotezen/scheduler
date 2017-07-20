@@ -8,11 +8,22 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
+<h3>
+  Skills
+</h3>
+
+<% @skillset.each do |skill| %>
+  <strong>
+    <%= skill if @user.attributes[skill] %>
+  </strong>
+<% end %>
+<% @current_user.events.each do |u| %>
+  <%= u.name %>
+
+<% end %>
 
 <p>
-  <strong>Title:</strong>
-  <%= @user.title %>
-</p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+</p>
