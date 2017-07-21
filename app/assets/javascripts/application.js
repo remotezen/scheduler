@@ -16,3 +16,7 @@
 //= require_tree .
 //= require moment
 
+
+jQuery( function($) {
+    $('event.tooltip').tooltip();
+});

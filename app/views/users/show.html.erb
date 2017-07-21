@@ -17,10 +17,12 @@
     <%= skill if @user.attributes[skill] %>
   </strong>
 <% end %>
-<% @current_user.events.each do |u| %>
-  <%= u.name %>
+<%if logged_in?%>
+  <% @current_user.events.each do |u| %>
+    <%= u.name %>
 
-<% end %>
+  <% end %>
+<%end%>
 
 <p>
 

@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.top
   end
 
   # GET /events/1
@@ -17,10 +17,12 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
     @users = User.all
+    @events = Event.top
   end
 
-  # GET /events/1/edit
+  # GET /events/1/edit:
   def edit
+    @events = Event.top
   end
 
   # POST /events
@@ -71,8 +73,8 @@ class EventsController < ApplicationController
     h = params.slice('name').to_h
     user = User.find_by(name: h['name'])
     user.inspect
-    
-    
+
+
   end
     # Use callbacks to share common setup or constraints between actions.
     def set_event
