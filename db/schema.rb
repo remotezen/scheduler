@@ -20,14 +20,12 @@ ActiveRecord::Schema.define(version: 20170721200229) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id", "created_at"], name: "index_events_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.integer "event_id"
     t.boolean "grill", default: false, null: false
     t.boolean "line", default: false, null: false
     t.boolean "juice", default: false, null: false
@@ -40,8 +38,6 @@ ActiveRecord::Schema.define(version: 20170721200229) do
     t.string "status", default: "normal"
     t.string "noavailability", default: "any"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["event_id", "created_at"], name: "index_users_on_event_id_and_created_at"
-    t.index ["event_id"], name: "index_users_on_event_id"
     t.index ["name"], name: "index_users_on_name", unique: true
   end
 

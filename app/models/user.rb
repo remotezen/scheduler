@@ -2,7 +2,7 @@ class User < ApplicationRecord
 #rails g migration add_index_to_users_email
   #rails generate migration add_password_digest_to_users password_digest:string
   before_save {self.email = email.downcase}
-  has_many :events
+  has_one :shift
 
   validates :name, presence: true, length: {maximum: 50},
     uniqueness: {case_sensitive: false}
@@ -13,14 +13,17 @@ class User < ApplicationRecord
     uniqueness: {case_sensitve: false}
     has_secure_password
     validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+   scope :normal_user, -> {where(status: 'normal')}
+   scope :off_user, -> {where(status: 'off')}
+   scope :ill_user, -> {where(status: 'sick')}
 
-     scope :normal_user, -> {where(status: 'normal')}
 
     def User.digest(string)
       cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST:
         BCrypt::Engine.cost
       BCrypt::Password.create(string, cost: cost)
     end
+
 
 
 

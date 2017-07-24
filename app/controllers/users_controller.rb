@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :set_status
-  before_action :day_array
 
   # GET /users
   # GET /users.json
@@ -79,15 +78,11 @@ class UsersController < ApplicationController
                                    :password_confirmation,
                                    :line,:grill,:cashier,
                                    :coldpress,:baking,
-                                   :juice,
+                                   :juice,:noavailability
                                   )
     end
     def set_status
       @status = %w[normal sick off]
       #code
     end
-    def set_day_array
-      @day_array = %w[sunday monday tuesday wednesday thursday friday saturday]
-    end
-
 end

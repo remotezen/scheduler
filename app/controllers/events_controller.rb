@@ -2,6 +2,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   #before_action :update_user_id,  only: [:show, :edit, :update, :destroy]
 
+
   # GET /events
   # GET /events.json
   def index
@@ -18,6 +19,7 @@ class EventsController < ApplicationController
     @event = Event.new
     @users = User.all
     @events = Event.top
+    @day = Event.day_of_month(25)
   end
 
   # GET /events/1/edit:
@@ -28,10 +30,9 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    user = User.find_by(name: params['event']['name'])
     @event = Event.new(event_params)
+    user = User.find_by(name: params["event"]["name"])
     @event.user_id = user.id
-
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
@@ -68,14 +69,6 @@ class EventsController < ApplicationController
   end
 
   private
-  def update_user_id
-    params.require(:event).permit(:name)
-    h = params.slice('name').to_h
-    user = User.find_by(name: h['name'])
-    user.inspect
-
-
-  end
     # Use callbacks to share common setup or constraints between actions.
     def set_event
       @event = Event.find(params[:id])
@@ -86,4 +79,5 @@ class EventsController < ApplicationController
     def event_params
       params.require(:event).permit(:name, :start_time, :end_time, :user_id)
     end
+    
 end
