@@ -1,6 +1,45 @@
 <h1>New Event</h1>
-  <%= @day.inspect %>
+<table class="table table-striped skills" style='line-height:150px' >
+<% @skills.each do |skill| %>
+ <% User.send(skill).normal_user.each do |e| %>
+   <tr>
+     <td>
+       <%= skill %>
+     </td>
+   <td>
+     <%= e.name %> 
+   </td>
 
+   </tr>
+  <% end %>
+  <% end %>
+</table>
+  <table class="table table-striped">
+   <% @users.each do |u| %>
+      <% if u.status == 'sick' %>
+        <tr>
+          <td>
+            <strong>
+              <%= u.status %>
+            </strong>
+            <%= u.name %>
+          </td>
+        </tr>
+      <% elsif u.status == 'off' %>
+        <tr>
+          <td>
+            <strong>
+              <%= u.status %>
+            </strong>
+            <%= u.name %>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+    
+
+    
 
 <%=week_calendar  events: @events do |date,events| %>
   <p class="month-day">

@@ -20,11 +20,13 @@ class EventsController < ApplicationController
     @users = User.all
     @events = Event.top
     @day = Event.day_of_month(25)
+    @skills = %w[juice line grill cashier baking coldpress]
   end
 
   # GET /events/1/edit:
   def edit
     @events = Event.top
+
   end
 
   # POST /events

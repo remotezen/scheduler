@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :offs
   get 'sessions/new'
 
   resources :events

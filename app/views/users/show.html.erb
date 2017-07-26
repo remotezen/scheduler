@@ -8,6 +8,10 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
+<p>
+<strong>status</strong>
+<%= @user.status %>
+</p>
 <h3>
   Skills
 </h3>
@@ -17,6 +21,7 @@
     <%= skill if @user.attributes[skill] %>
   </strong>
 <% end %>
+
 
 <p>
 

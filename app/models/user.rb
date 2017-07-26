@@ -16,6 +16,15 @@ class User < ApplicationRecord
    scope :normal_user, -> {where(status: 'normal')}
    scope :off_user, -> {where(status: 'off')}
    scope :ill_user, -> {where(status: 'sick')}
+   #scope :line, -> {where(line: true)}
+   #scope :grill, -> {where(grill: true)} 
+   #scope :cash, -> {where(cash: true)}
+   #scope :juice, -> {where(juice: true)}
+   #scope :baking, -> {where(baking: true)}
+   #scope :press, -> {where(press: true)}
+
+
+
 
 
     def User.digest(string)
@@ -23,9 +32,26 @@ class User < ApplicationRecord
         BCrypt::Engine.cost
       BCrypt::Password.create(string, cost: cost)
     end
-
-
-
-
+    def self.line
+      where(line: true)
+    end
+    def self.grill
+      where(grill: true)
+    end
+    def self.cashier
+      where(cashier: true)
+    end
+    def self.baking
+      where(baking: true)
+    end
+    def self.coldpress
+      where(coldpress: true)
+    end
+    def self.juice
+      where(juice: true)
+    end
+    
+    
+    
 
 end
